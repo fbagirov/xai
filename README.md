@@ -23,5 +23,10 @@ To demonstrate how perturbation-based methods like LIME can help interpret black
 Make sure the following packages are installed:
 
 ```bash
-pip install lime transformers numpy scikit-learn
+pip install lime transformers torch numpy scikit-learn
+
+```
+
+
+
 
