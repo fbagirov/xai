@@ -1,0 +1,61 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+
+# Byte-compiled / optimized / DLL files
+*.egg-info/
+.eggs/
+*.egg
+dist/
+build/
+
+# Virtual environment (your custom name)
+.antigravity_demo/
+.venv/
+
+# Flask / local runtime files
+instance/
+*.log
+*.pid
+*.ini
+
+# SQLite database + backups
+data.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+
+# System / OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor config files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment / secrets
+.env
+.env.*
+*.env
+
+
+# Python packaging / tooling
+.venv/
+pip-wheel-metadata/
+wheelhouse/
+*.spec
+MANIFEST
+
+# Cache / build directories
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/

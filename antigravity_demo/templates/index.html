@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Task Board – Antigravity Demo{% endblock %}
+
+{% block content %}
+<section class="card">
+  <h2>Create a new task</h2>
+  <form method="post" action="{{ url_for('add_task') }}" class="task-form">
+    <label for="title">Title</label>
+    <input id="title" name="title" required
+           placeholder="Restart dev server, clear cache, etc.">
+
+    <label for="description">Description (optional)</label>
+    <textarea id="description" name="description" rows="3"
+              placeholder="More detail about this task..."></textarea>
+
+    <button type="submit">Add Task</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>Existing tasks</h2>
+  {% if not tasks %}
+    <p>No tasks yet. Add one above.</p>
+  {% else %}
+    <ul class="task-list">
+      {% for task in tasks %}
+        <li class="task-item {% if task.completed %}task-completed{% endif %}">
+          <div class="task-main">
+            <h3>{{ task.title }}</h3>
+            {% if task.description %}
+              <p class="task-desc">{{ task.description }}</p>
+            {% endif %}
+            <p class="task-meta">
+              Created: {{ task.created_at }}
+              {% if task.completed %}
+                • <strong>Completed</strong>
+              {% endif %}
+            </p>
+          </div>
+          <div class="task-actions">
+            <form method="post" action="{{ url_for('toggle_task', task_id=task.id) }}">
+              <button type="submit">
+                {% if task.completed %}Mark as Incomplete{% else %}Mark as Done{% endif %}
+              </button>
+            </form>
+            <form method="post" action="{{ url_for('delete_task', task_id=task.id) }}">
+              <button type="submit" class="danger">Delete</button>
+            </form>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+{% endblock %}
