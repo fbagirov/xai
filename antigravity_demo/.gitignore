@@ -45,6 +45,7 @@ desktop.ini
 .env
 .env.*
 *.env
+.gitignore
 
 
 # Python packaging / tooling
